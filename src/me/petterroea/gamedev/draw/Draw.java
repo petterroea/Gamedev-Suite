@@ -1,6 +1,9 @@
 package me.petterroea.gamedev.draw;
 
 import java.awt.BorderLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,7 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-public class Draw extends JFrame {
+public class Draw extends JFrame{
 	public static void main(String[] args)
 	{
 		Draw draw = new Draw();
@@ -36,20 +39,6 @@ public class Draw extends JFrame {
 	}
 	public void initComponents()
 	{
-		this.setLayout(new BorderLayout());
-		JMenuBar bar = new JMenuBar();
-		JMenu file = new JMenu("File");
-		JMenuItem save = new JMenuItem("Save");
-		JMenuItem newdiag = new JMenuItem("New");
-		JMenuItem saveas = new JMenuItem("Save As...");
-		file.add(newdiag);
-		file.addSeparator();
-		file.add(save);
-		file.add(saveas);
-		file.addSeparator();
-		bar.add(file);
-		this.add(new ColorSel(), BorderLayout.WEST);
-		this.add(new JLabel("HAI"));
-		this.setJMenuBar(bar);
+		this.add(new Workspace(this));
 	}
 }
